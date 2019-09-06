@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import SearchScreen from "./src/Screens/SearchScreen";
-import CardView from './src/Components/CardView';
+import CardView from './src/Components/CardView'; 
 
 
 const navigator = createStackNavigator(
