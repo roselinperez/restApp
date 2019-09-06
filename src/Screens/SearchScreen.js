@@ -16,29 +16,34 @@ const SearchScreen = () => {
     };
     
     return(
-        /*{<ScrollView>}*/
-        <View>
+        //Use empty tags to wrap multiple elements
+        //into the screen without it going out of range
+        <>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
                 onTermSubmit = {() => searchApi(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
-            <Text style = {styles.textStyle}>We have found: {results.length} results</Text>
-            <ResultsList
-                results = {filterResultsByPrice('$')}
-                title="Cost Effective"
-            />
-            <ResultsList
-                results = {filterResultsByPrice('$$')}
-                title="Bit Pricer"
-            />
-            <ResultsList
-                results = {filterResultsByPrice('$$$')}
-                title="Big Spender"
-            />
-        </View>
-        /*{</ScrollView>}*/
+            {/*<Text style = {styles.textStyle}>We have found: {results.length} results</Text>}*/}
+            <ScrollView>
+                <ResultsList
+                    results = {filterResultsByPrice('$')}
+                    title="Cost Effective"
+                    
+                />
+                <ResultsList
+                    results = {filterResultsByPrice('$$')}
+                    title="Bit Pricer"
+                    
+                />
+                <ResultsList
+                    results = {filterResultsByPrice('$$$')}
+                    title="Big Spender"
+                    
+                />
+            </ScrollView>
+        </>
     );
 }
 
