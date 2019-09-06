@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, ToastAndroid} from 'react-native';
+import {View, Text, StyleSheet, ToastAndroid, ScrollView} from 'react-native';
 import SearchBar from '../Components/SearchBar';
 import useResults from '../hooks/useResults';
 import ResultsList from '../Components/ResultsList';
@@ -16,6 +16,7 @@ const SearchScreen = () => {
     };
     
     return(
+        /*{<ScrollView>}*/
         <View>
             <SearchBar
                 term={term}
@@ -23,7 +24,7 @@ const SearchScreen = () => {
                 onTermSubmit = {() => searchApi(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
-            <Text>We have found: {results.length} results</Text>
+            <Text style = {styles.textStyle}>We have found: {results.length} results</Text>
             <ResultsList
                 results = {filterResultsByPrice('$')}
                 title="Cost Effective"
@@ -37,11 +38,15 @@ const SearchScreen = () => {
                 title="Big Spender"
             />
         </View>
+        /*{</ScrollView>}*/
     );
 }
 
-const style = StyleSheet.create({
-
+const styles = StyleSheet.create({
+    textStyle: {
+        marginLeft: 15,
+        fontStyle: "italic"
+    }
 });
 
 export default SearchScreen;

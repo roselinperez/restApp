@@ -13,9 +13,7 @@ const ResultsList = ({title, results}) => {
                 data = {results}
                 keyExtractor = {(result) => result.id}
                 renderItem = {({item}) => {
-                    return <ResultsDetail
-                                result = {item} 
-                            />;
+                    return <ResultsDetail result = {item} />;
                 }}
             />
         </View>
@@ -24,7 +22,8 @@ const ResultsList = ({title, results}) => {
 const styles = StyleSheet.create({
     title: {
         fontSize: 18,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginLeft: 15
     }
 });
 
